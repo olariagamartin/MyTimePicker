@@ -141,6 +141,17 @@ class MyTimePicker() : DialogFragment() {
         this.onCancelOption = onCancelOption
         cancelText = text
     }
+    
+    /**
+     * @param timeMillis time in milliseconds that will
+     * be used to get hours, minutes and seconds
+     */
+    fun setInitialTimeMillis (timeMillis: Long) {
+        initialHour = (timeMillis / (MyCountDownTimer.ONE_MINUTE * 60)).toInt()
+        initialMinute = ((timeMillis % (MyCountDownTimer.ONE_MINUTE * 60)) / MyCountDownTimer.ONE_MINUTE).toInt()
+        val rest = (timeMillis % (MyCountDownTimer.ONE_MINUTE * 60)) % MyCountDownTimer.ONE_MINUTE
+        initialSeconds = (rest / MyCountDownTimer.ONE_SECOND).toInt()
+    }
 
     private fun setupTimePickerLayout() {
         bindViews()
