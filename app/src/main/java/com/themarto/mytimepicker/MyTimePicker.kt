@@ -144,7 +144,8 @@ class MyTimePicker() : DialogFragment() {
     
     /**
      * @param timeMillis time in milliseconds that will
-     * be used to get hours, minutes and seconds
+     * be used to get hours, minutes and seconds to set
+     * initil values
      */
     fun setInitialTimeMillis (timeMillis: Long) {
         initialHour = (timeMillis / (MyCountDownTimer.ONE_MINUTE * 60)).toInt()
